@@ -28,6 +28,8 @@
     #mobile-menu {
       transition: max-height 0.3s ease-out, opacity 0.2s;
     }
+    .nav-dropdown { opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; }
+    .nav-dropdown-trigger:hover .nav-dropdown { opacity: 1; visibility: visible; }
   </style>
 </head>
 <body class="bg-white min-h-screen relative">
@@ -61,18 +63,28 @@
     </svg>
   </button>
   <!-- Desktop Navigation -->
-  <nav class="hidden md:flex absolute top-4 right-16 gap-8 text-sm font-medium text-gray-600 nav-spacing z-10">
+  <nav class="hidden md:flex absolute top-4 right-16 gap-8 text-sm font-medium text-gray-600 nav-spacing z-10 items-center">
     <a href="index.html" class="hover:text-black">HOME</a>
-    <a href="who-we-are.html" class="hover:text-black">WHO WE ARE</a>
-    <a href="about-jess.html" class="hover:text-black">ABOUT JESS</a>
+    <div class="relative nav-dropdown-trigger">
+      <span class="hover:text-black cursor-default">WHO WE ARE</span>
+      <div class="nav-dropdown absolute top-full left-0 pt-2">
+        <div class="bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[240px]">
+          <a href="support-worker.html" class="block px-4 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-black">Independent Support Worker</a>
+          <a href="specialised-cleaning.html" class="block px-4 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-black">Specialised Cleaning Solutions</a>
+        </div>
+      </div>
+    </div>
     <a href="contact.html" class="hover:text-black">CONTACT</a>
   </nav>
   <!-- Mobile menu overlay -->
   <div id="mobile-menu" class="md:hidden fixed inset-0 z-30 bg-white pt-20 px-6 max-h-0 overflow-hidden opacity-0 pointer-events-none" aria-hidden="true">
     <nav class="flex flex-col gap-6 text-base font-medium text-gray-800 nav-spacing">
       <a href="index.html" class="hover:text-black border-b border-gray-200 pb-3">HOME</a>
-      <a href="who-we-are.html" class="hover:text-black border-b border-gray-200 pb-3">WHO WE ARE</a>
-      <a href="about-jess.html" class="hover:text-black border-b border-gray-200 pb-3">ABOUT JESS</a>
+      <div class="border-b border-gray-200 pb-3">
+        <p class="text-gray-500 text-xs mb-2">WHO WE ARE</p>
+        <a href="support-worker.html" class="block hover:text-black py-1">Independent Support Worker</a>
+        <a href="specialised-cleaning.html" class="block hover:text-black py-1">Specialised Cleaning Solutions</a>
+      </div>
       <a href="contact.html" class="hover:text-black border-b border-gray-200 pb-3">CONTACT</a>
     </nav>
     <button id="close-menu" type="button" class="absolute top-4 right-4 p-2 text-gray-600 hover:text-black" aria-label="Close menu">
@@ -112,7 +124,7 @@
           <p class="text-gray-600 text-[15px] mb-6 body-spacing flex-1">
             Providing personalized support services to those in need with care and compassion.
           </p>
-          <a href="who-we-are.html" class="inline-flex items-center justify-center bg-[#2e6b4d] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 mt-auto w-fit">
+          <a href="support-worker.html" class="inline-flex items-center justify-center bg-[#2e6b4d] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 mt-auto w-fit">
             Learn More
           </a>
         </div>
@@ -132,7 +144,7 @@
           <p class="text-gray-600 text-[15px] mb-6 body-spacing flex-1">
             Professional cleaning services for specific needs including domestic, Aged care, NDIS, and healthcare settings.
           </p>
-          <a href="who-we-are.html" class="inline-flex items-center justify-center bg-[#e9b437] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 mt-auto w-fit">
+          <a href="specialised-cleaning.html" class="inline-flex items-center justify-center bg-[#e9b437] text-white px-6 py-3 rounded-full text-sm font-medium hover:opacity-90 mt-auto w-fit">
             Learn More
           </a>
         </div>
